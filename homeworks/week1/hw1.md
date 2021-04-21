@@ -1,7 +1,7 @@
 ## 交作業流程
 
 1. 新開一個 branch：`git branch week1`
-2. 切換到該 branch：`git check out week1`
+2. 切換到該 branch：`git checkout week1`
 3. 寫作業
 4. 如果有新增檔案，要加入版本控制：`git add .`
 5. 想要提交改動後的檔案時，送出 commit：`git commit -am "hw1"`

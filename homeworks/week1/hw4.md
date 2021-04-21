@@ -6,7 +6,7 @@ git 版本控制可以紀錄下檔案的改動過程，所以可以清楚瞭解�
 - `git init`：初始化，在該資料夾開啟 git 版本控制
 - `git status`：查看 git 的狀態
 ```
-untrackrd：不加入版本控制
+untracked：不加入版本控制
 staged：加入版本控制
 ```
 - `git add`：將檔案寫入版本控制
