@@ -9,20 +9,10 @@ function solve(lines) {
 function compare(a, b, p) {
   if (a === b) return 'DRAW'
   if (p === '-1') {
-    const temp = a
-    a = b
-    b = temp
+    [a, b] = [b, a]
   }
-  if (a.length > b.length) {
-    return 'A'
-  } else if (a.length < b.length) {
-    return 'B'
+  if (a.length !== b.length) {
+    return a.length > b.length ? 'A' : 'B'
   }
-  for (let j = 0; j < a.length; j++) {
-    if (a[j] > b[j]) {
-      return 'A'
-    } else if (a[j] < b[j]) {
-      return 'B'
-    }
-  }
+  return a > b ? 'A' : 'B'
 }

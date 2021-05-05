@@ -13,9 +13,5 @@ function isPrime(number) {
       temp.push(j)
     }
   }
-  if (temp.length === 2) {
-    return 'Prime'
-  } else {
-    return 'Composite'
-  }
+  return (temp.length === 2) ? 'Prime' : 'Composite'
 }
