@@ -1,6 +1,8 @@
 /* eslint-disable prefer-arrow-callback, import/no-extraneous-dependencies */
 const request = require('request')
 
+const API_ENDPOINT = 'https://lidemy-book-store.herokuapp.com/books'
+
 switch (process.argv[2]) {
   case 'list':
     listBook()
@@ -21,11 +23,17 @@ switch (process.argv[2]) {
 
 function listBook() {
   request(
-    'https://lidemy-book-store.herokuapp.com/books?_limit=20',
+    `${API_ENDPOINT}?_limit=20`,
     function(error, response, body) {
-      const json = JSON.parse(body)
-      for (let i = 0; i < json.length; i++) {
-        console.log(`${json[i].id} ${json[i].name}`)
+      let books
+      try {
+        books = JSON.parse(body)
+      } catch (error) {
+        console.log(error)
+        return
+      }
+      for (let i = 0; i < books.length; i++) {
+        console.log(`${books[i].id} ${books[i].name}`)
       }
     }
   )
@@ -33,45 +41,63 @@ function listBook() {
 
 function returnBook() {
   request(
-    `https://lidemy-book-store.herokuapp.com/books/${process.argv[3]}`,
+    `${API_ENDPOINT}/${process.argv[3]}`,
     function(error, response, body) {
-      const json = JSON.parse(body)
-      console.log(`${json.id} ${json.name}`)
+      let books
+      try {
+        books = JSON.parse(body)
+      } catch (error) {
+        console.log(error)
+        return
+      }
+      console.log(`${books.id} ${books.name}`)
     }
   )
 }
 
 function deleteBook() {
   request.delete({
-    url: `https://lidemy-book-store.herokuapp.com/books/${process.argv[3]}`
+    url: `${API_ENDPOINT}/${process.argv[3]}`
   },
   function(error, response, body) {
-    console.log(response.statusCode)
+    console.log('刪除成功')
   })
 }
 
 function createBook() {
   request.post({
-    url: 'https://lidemy-book-store.herokuapp.com/books',
+    url: API_ENDPOINT,
     form: {
       name: process.argv[3]
     }
   },
   function(error, response, body) {
-    const json = JSON.parse(body)
-    console.log(json)
+    let book
+    try {
+      book = JSON.parse(body)
+    } catch (error) {
+      console.log(error)
+      return
+    }
+    console.log(`${book.id} ${book.name} 新增成功`)
   })
 }
 
 function updateBook() {
   request.patch({
-    url: `https://lidemy-book-store.herokuapp.com/books/${process.argv[3]}`,
+    url: `${API_ENDPOINT}/${process.argv[3]}`,
     form: {
       name: process.argv[4]
     }
   },
   function(error, response, body) {
-    const json = JSON.parse(body)
-    console.log(json)
+    let book
+    try {
+      book = JSON.parse(body)
+    } catch (error) {
+      console.log(error)
+      return
+    }
+    console.log(`${book.id} ${book.name} 更新成功`)
   })
 }

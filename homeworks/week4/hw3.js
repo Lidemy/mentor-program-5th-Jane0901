@@ -1,4 +1,4 @@
-/* eslint-disable prefer-arrow-callback, import/no-extraneous-dependencies, no-unused-vars */
+/* eslint-disable prefer-arrow-callback, import/no-extraneous-dependencies */
 const request = require('request')
 
 const str = process.argv[2]
@@ -6,9 +6,9 @@ const str = process.argv[2]
 request(
   `https://restcountries.eu/rest/v2/name/${str}`,
   function(error, response, body) {
-    const country = JSON.parse(body)
+    let country
     try {
-      const country = JSON.parse(body)
+      country = JSON.parse(body)
     } catch (error) {
       console.log(error)
       return
