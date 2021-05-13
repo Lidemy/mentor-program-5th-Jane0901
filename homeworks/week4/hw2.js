@@ -13,7 +13,7 @@ switch (process.argv[2]) {
   case 'delete':
     deleteBook()
     break
-  case 'creat':
+  case 'create':
     createBook()
     break
   case 'update':
@@ -43,14 +43,15 @@ function returnBook() {
   request(
     `${API_ENDPOINT}/${process.argv[3]}`,
     function(error, response, body) {
-      let books
+      let book
       try {
-        books = JSON.parse(body)
+        book = JSON.parse(body)
       } catch (error) {
         console.log(error)
         return
       }
-      console.log(`${books.id} ${books.name}`)
+      if (Object.keys(book).length === 0) console.log('有錯誤')
+      console.log(`id: ${book.id}, name: ${book.name}`)
     }
   )
 }
@@ -60,7 +61,7 @@ function deleteBook() {
     url: `${API_ENDPOINT}/${process.argv[3]}`
   },
   function(error, response, body) {
-    console.log('刪除成功')
+    console.log(`已無 id ${process.argv[3]} 之書籍`)
   })
 }
 
@@ -79,7 +80,7 @@ function createBook() {
       console.log(error)
       return
     }
-    console.log(`${book.id} ${book.name} 新增成功`)
+    console.log(`id: ${book.id}, name: ${book.name} 新增成功`)
   })
 }
 
@@ -98,6 +99,7 @@ function updateBook() {
       console.log(error)
       return
     }
-    console.log(`${book.id} ${book.name} 更新成功`)
+    if (Object.keys(book).length === 0) console.log('有錯誤')
+    console.log(`id: ${book.id}, name: ${book.name}`)
   })
 }
