@@ -23,7 +23,6 @@
 .navbar__list {
   list-style: none;
   margin: 0;
-  padding: 0;
   display: flex;
   font-family: MicrosoftJhengHei;
   font-size: 18px;
@@ -152,7 +151,7 @@ h2 , p{
 
 .section__comment {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   margin-bottom: 40px;
   padding: 0 50px;
 }
@@ -166,8 +165,8 @@ h2 , p{
   justify-content: center;
   position: relative;
   margin-top: 60px;
-  height: 280px;
   width: 30%;
+  padding-top: 100px;
 }
 
 .section__comment-block +.section__comment-block{
@@ -204,7 +203,6 @@ h2 , p{
   text-align: center;
   color: #000000;
   position: relative;
-  top: 95px;
 }
 
 footer {
@@ -277,9 +275,13 @@ footer {
     font-size: 50px;
   }
 
+  .buttons {
+    margin: 0 10px 40px 10px;
+  }
+
   .button {
     display: block;
-    padding: 41px 70px 47px 69px;
+    padding: 41px 40px 47px 40px;
   }
 
   .btn-query {
@@ -300,7 +302,6 @@ footer {
   }
 
   .section__comment-block {
-    height: 275px;
     width: 90%;
   }
 

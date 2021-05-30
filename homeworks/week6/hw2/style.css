@@ -100,7 +100,7 @@ input[type="radio"] {
   margin-top: 23px;
 }
 
-input[type="summit"] {
+input[type="submit"] {
   border: none;
   width: 92px;
   height: 40px;
@@ -111,6 +111,7 @@ input[type="summit"] {
   color: #000000;
   margin-top: 55px;
   text-align: center;
+  cursor: pointer;
 }
 
 .warning {
@@ -126,7 +127,7 @@ footer {
   color: #999999;
   font-size: 13px;
   text-align: center;
-  padding: 24px 0px 21px 0px;
+  padding: 22px 0px 22px 0px;
 }
 
 @media (min-width: 768px) {
