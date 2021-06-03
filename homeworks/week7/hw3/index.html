@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form class="list">
+      <h1 class="list__title">
+        提醒列表
+      </h1>
+      <div class="list__input-block">
+        <button class="list__add-btn" type="submit">＋</button>
+        <input class="list__input" type="text" placeholder="新增提醒事項">
+      </div>
+      <div class="list__item-block">
+        <label>
+          <input class="list__item" type="checkbox">hw1：表單驗證
+        </label>
+        <button class="list__del-btn">x</button>
+      </div>
+      <div class="list__item-block">
+        <label>
+          <input class="list__item" type="checkbox">hw2：餐廳 FAQ 頁面
+        </label>
+        <button class="list__del-btn">x</button>
+      </div>
+      <div class="list__item-block">
+        <label>
+          <input class="list__item" type="checkbox">hw3：Todo List
+        </label>
+        <button class="list__del-btn">x</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    document
+     .querySelector('.list')
+     .addEventListener('submit', function(e) {
+       e.preventDefault()
+       let inputValue = document.querySelector('.list__input').value
+       if(!inputValue) return
+       let div = document.createElement("div")
+       div.classList.add('list__item-block')
+       div.innerHTML = `
+  <label>
+    <input class="list__item" type="checkbox">${escapeHtml(inputValue)}
+  </label>
+  <button class="list__del-btn">x</button>`
+       document.querySelector('.list').appendChild(div)
+       document.querySelector('.list__input').value=''
+
+       function escapeHtml(unsafe) {
+         return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+        }
+     })
+    document
+      .querySelector('.list')
+      .addEventListener('click', function(e) {
+        let clickItem = e.target.classList.contains('list__item')
+        let clickDel = e.target.classList.contains('list__del-btn')
+        if(clickItem) {
+          e.target.parentNode.classList.toggle('done')
+        }
+        if(clickDel) {
+          e.preventDefault()
+          document.querySelector('.list').removeChild(e.target.parentNode)
+        }
+    })
+  </script>
+</body>
+</html>
