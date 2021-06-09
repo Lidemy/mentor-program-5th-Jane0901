@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>新拖延運動報名表單</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <form class="form">
+    <h1 class="form__title">新拖延運動報名表單</h1>
+    <p class="form__info">
+      活動日期：2020/12/10 ~ 2020/12/11<br>
+      活動地點：台北市大安區新生南路二段1號
+    </p>
+    <p class="form__notice">
+      * 必填
+    </p>
+    <div class="form__name hide-error">
+      <p class="form__question">
+        暱稱<span class="form__notice">*</span>
+      </p>
+      <input type="text" class="form__answer required" placeholder="您的回答">
+      <p class="form__answer-remind">這是必填問題</p>
+    </div>
+    <div class="form__email hide-error">
+      <p class="form__question">
+        電子郵件<span class="form__notice">*</span>
+      </p>
+      <input type="text" class="form__answer required" placeholder="您的電子郵件">
+      <p class="form__answer-remind">這是必填問題</p>
+    </div>
+    <div class="form__phone-number hide-error">
+      <p class="form__question">
+        手機號碼<span class="form__notice">*</span>
+      </p>
+      <input type="text" class="form__answer required" placeholder="您的手機號碼">
+      <p class="form__answer-remind">這是必填問題</p>
+    </div>
+    <div class="form__apply-type hide-error">
+      <p class="form__question">
+        報名類型<span class="form__notice">*</span>
+      </p>
+      <div class="form__answer required">
+        <label class="form__answer-option">
+          <input type="radio" name="type"> 躺在床上用想像力實作
+        </label>
+        <label class="form__answer-option">
+          <input type="radio" name="type"> 趴在地上滑手機找現成的
+        </label>
+        <p class="form__answer-remind">這是必填問題</p>
+      </div>
+    </div>
+    <div class="form__how-know hide-error">
+      <p class="form__question">
+        怎麼知道這個活動的？<span class="form__notice">*</span>
+      </p>
+      <input type="text" class="form__answer required" placeholder="您的回答">
+      <p class="form__answer-remind">這是必填問題</p>
+    </div>
+    <div class="form__others">
+      <p class="form__question">
+        其他
+      </p>
+      <p class="form__question-supplement">
+        對活動的一些建議
+      </p>
+      <input type="text" class="form__answer" placeholder="您的回答">
+    </div>
+    <input class="submit" type="submit" value="提交">
+    <p class="warning">
+      請勿透過表單送出您的密碼。
+    </p>
+  </form>
+</div>
+<script>
+  document
+    .querySelector('form')
+    .addEventListener('submit', function(e){
+      const elements = document.querySelectorAll('.required')
+      let hasError = false
+      for(element of elements) {
+        let isEmpty = true
+        if(element.type === "text") {
+          if(!(element.value.length == 0)) {
+            isEmpty = false
+          }
+        } else {
+          let radios = element.querySelectorAll('input[type=radio]')
+          if(radios[0].checked || radios[1].checked) {
+            isEmpty = false
+          }
+        }
+
+        if (isEmpty) {
+          element.parentNode.classList.remove('hide-error')
+          e.preventDefault()
+          hasError = true
+        } else {
+          element.parentNode.classList.add('hide-error')
+        }
+      }
+
+      let result = document.querySelectorAll('.form__answer')
+
+      let applyType = "躺在床上用想像力實作"
+      let options = document.querySelectorAll('input[type=radio]')
+      if(options[1].checked) {
+        applyType = "趴在地上滑手機找現成的"
+      }
+
+      if(!hasError) {
+        alert(`暱稱：${result[0].value}
+電子郵件：${result[1].value}
+手機號碼：${result[2].value}
+報名類型：${applyType}
+怎麼知道這個活動的：${result[4].value}
+其他：${result[5].value}`)
+      }
+    })
+</script>
+</body>
+<footer>
+    © 2020 © Copyright. All rights Reserved.
+</footer>
+</html>
