@@ -130,10 +130,9 @@
   <script>
     document
       .querySelector('.faq__block')
-      .addEventListener('click', function(e) {
+      .addEventListener('click', (e) => {
         const element = e.target.closest('.faq__item')
-        console.log(element)
-        if(element) {
+        if (element) {
           element.classList.toggle('faq__hide-answer')
         }
       })
