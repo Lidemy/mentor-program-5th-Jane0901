@@ -1,0 +1,182 @@
+h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  box-shadow: 1.4px 1.4px 10px 0 #97a2a0;
+  padding-top: 15px;
+}
+
+.navbar__site-name {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.navbar__games {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 20px;
+}
+
+.navbar__game-name {
+  transition: background 0.2s;
+}
+
+.navbar__game-name a {
+  text-decoration: none;
+  padding: 5px 0;
+  color: black;
+  display: block;
+}
+
+.navbar__game-name:hover {
+  background: #708080;
+}
+
+.navbar__game-name a:hover {
+  color: white;
+}
+
+.wrapper {
+  background: #242e2e;
+  color: white;
+  padding: 30px 32px;
+}
+
+.wrapper h1, h2 {
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.stream {
+  background: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.stream:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2)
+}
+
+.stream + .stream {
+  margin-top: 20px;
+}
+
+.empty {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.stream__preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stream__preview img{
+  width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.stream__info {
+  display: flex;
+  padding: 10px;
+  background-color: #708080;
+  align-items: center;
+}
+
+.stream__logo {
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  width: 60px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stream__logo img{
+  width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;	
+}
+
+.stream__title, .stream__broadcaster {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stream__content {
+  width: 80%;
+}
+
+.stream__title {
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+.stream__broadcaster {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .navbar__site-name {
+    margin-bottom: 0;
+    margin-right: 20px;
+    margin: 10px 20px 10px 20px;
+  }
+
+  .navbar__games {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .navbar__game-name + .navbar__game-name {
+    margin-left: 0px;
+  }
+
+  .navbar__game-name a {
+    padding: 20px;
+  }
+
+  .streams {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .stream + .stream {
+    margin-top: 10px;
+  }
+
+  .empty {
+    margin-top: 10px;
+  }
+
+  .stream {
+    margin: 10px 10px;
+    width: 380px;
+  }
+}
