@@ -42,10 +42,7 @@ document
 
     if (e.target.classList.contains('lottery__btn')) {
       draw((error, prizeResult) => {
-        if (error) {
-          alert(errorMessage)
-          return
-        }
+        if (error) return alert(errorMessage)
 
         let className
         let prizeDetail
