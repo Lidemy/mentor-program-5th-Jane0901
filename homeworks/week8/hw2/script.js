@@ -35,8 +35,11 @@ getTopGames((error, games) => {
 document
   .querySelector('.navbar__games')
   .addEventListener('click', (e) => {
-    const game = e.target.innerText
-    changPage(game)
+    const gameClicked = e.target.innerText
+    const gameOrigin = document.querySelector('h1').innerText
+    if (!(gameClicked === gameOrigin)) {
+      changPage(gameClicked)
+    }
   })
 
 function getTopGames(callback) {
