@@ -127,9 +127,7 @@ function changPage(gameName) {
 function appendStreamDiv(streams) {
   for (const stream of streams) {
     const previewURL = stream.preview.large
-    const logeURL = stream.channel.logo
-    const title = stream.channel.status
-    const name = stream.channel.display_name
+    const { logo: logeURL, status: title, display_name: name } = stream.channel
     const div = document.createElement('div')
     document.querySelector('.streams').appendChild(div)
     div.outerHTML = streamTemplte
