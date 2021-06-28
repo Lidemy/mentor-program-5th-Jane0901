@@ -54,7 +54,7 @@
         while ($row = $result -> fetch_assoc()) { 
       ?>
       <div class="page">
-        <a  class="page__title" href="article.php?id=<?php echo escape($row['id'])?>"><?php echo escape($row['title'])?></a>
+        <a  class="page__title" href="article.php?blog=<?php echo escape($username)?>&id=<?php echo escape($row['id'])?>"><?php echo escape($row['title'])?></a>
         <div class="page__wrapper">
           <p class="page__time"><?php echo escape($row['created_at'])?></p>
           <div class="page_btns">

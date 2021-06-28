@@ -59,7 +59,7 @@
     <?php if ($row = $result -> fetch_assoc()) { ?>
     <main>
       <?php 
-        $result->data_seek(0);
+        $result -> data_seek(0);
         while ($row = $result -> fetch_assoc()) {
       ?>
       <div class="article">
@@ -101,7 +101,7 @@
   </div>
   <div class="page__number-wrapper">
       <?php for ($i = 1; $i <= $total_page; $i++) { ?>
-        <a href="index.php?page=<?php echo escape($i)?>" class="<?php if ($page == $i) {echo 'selected';}?> page__number">
+        <a href="index.php?blog=<?php echo escape($blog)?>&page=<?php echo escape($i)?>" class="<?php if ($page == $i) {echo 'selected';}?> page__number">
           <?php echo escape($i) ?>
         </a>
       <?php } ?>

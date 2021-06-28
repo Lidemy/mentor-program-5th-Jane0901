@@ -1,5 +1,7 @@
 <?php
   require_once('conn.php');
+  require_once('utils.php');
+  $blog = 'jane'
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +27,7 @@
         PASSWORD<br>
         <input type="password" name="password">
       </div>
-      <input class="form__register-btn" type="submit" value="SIGN Up">
+      <input class="form__register-btn" type="submit" value="SIGN UP">
       <?php
         if ($_GET['errCode']) {
           $errCode = $_GET['errCode'];
