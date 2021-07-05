@@ -1,0 +1,369 @@
+html,body{
+  height: 100%;
+}
+
+main {
+  padding: 10px;
+  background: white;
+  margin: 0 auto;
+}
+
+h1, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  background: #323232;
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+  color: #fefefe;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.navbar{
+  background: white;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.navbar__blog-name a {
+  font-family: MicrosoftJhengHei;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.navbar__left, .navbar__right {
+  font-size: 0;
+}
+
+.navbar__btn {
+  font-family: MicrosoftJhengHei;
+  font-size: 16px;
+  color: #787878;
+  display: block;
+  padding: 5px 0;
+  transition: 0.3s;
+}
+
+.banner {
+  background: linear-gradient(to top, #000000, #434343);
+  text-align: center;
+  padding: 20px;
+}
+
+.banner__title {
+  margin: 0 0 6px;
+  font-family: MicrosoftJhengHei;
+  font-size: 28px;
+  font-weight: bold;
+  color: #eeeeee;
+}
+
+.banner p {
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+  color: #eeeeee;
+}
+
+.wrapper {
+  min-height: calc(100% - 80px);
+  margin: 0 auto;
+  position: relative;
+}
+
+.article, .edit-article {
+  border: solid 1px #9a9a9a;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.article__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+}
+
+.article__title, .page__title {
+  text-shadow: 1.4px 1.4px 2px #efefef;
+  font-family: MicrosoftJhengHei;
+  font-size: 16px;
+  color: #000000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 10px;
+  display: block;
+}
+
+.article__btns, .page__wrapper {
+  white-space: nowrap;
+}
+
+.article__edit-btn, .page__edit-btn {
+  border: solid 1px #a8a8a8;
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+  color: #a8a8a8;
+  padding: 2px 8px;
+}
+
+.article__edit-btn {
+  margin-left: 5px;
+}
+
+.article__info {
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  margin-top: 10px;
+}
+
+.article__info-time {
+  margin: 0 20px 0 10px;
+  white-space: nowrap;
+}
+
+.article__info img {
+  height: 14px;
+}
+
+.article__info p, .page__time {
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+  color: #8f8f8f;
+  display: inline-block;
+  text-align: left;
+}
+
+.article__content {
+  white-space: pre-line;
+  line-height: 1.5;
+  margin: 20px 0 30px 0;
+}
+
+.hide__content {
+  height: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.article__content-complete {
+  white-space: pre-line;
+  line-height: 1.5;
+  margin: 20px 0 50px 0;
+}
+
+.article__more-btn {
+  border: solid 1px #737373;
+  font-family: MicrosoftJhengHei;
+  font-size: 14px;
+  background: white;
+  color: #000000;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.edit-article__title {
+  font-family: MicrosoftJhengHei;
+  font-size: 20px;
+  color: #000000;
+  margin: 0;
+}
+
+.edit-post__input-wrapper{
+  margin: 20px 0;
+}
+
+.edit-post__input-wrapper input {
+  border: solid 1px #d7d7d7;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.edit-post__input-wrapper select {
+  border: solid 1px #eeeeee;
+  background: #eeeeee;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.edit-post__btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.edit-post__btn {
+  border: solid 1px #737373;
+  background: white;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+.form__login, .form__register {
+  border: solid 1px #000000;
+  background-color: var(--white);
+  text-align: center;
+  padding: 30px 40px 70px;
+  height: 350px;
+  max-width: 350px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;  
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.form__login-title, .form__register-title {
+  font-family: MicrosoftJhengHei;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.form__login-item, .form__register-item {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.form__login-item input, .form__register-item input {
+  margin-top: 10px;
+  width: 98%;
+  border: solid 1px #000000;
+  height: 30px;
+}
+
+.form__login-btn, .form__register-btn {
+  background: linear-gradient(to top, #000000, #434343);
+  font-family: MicrosoftJhengHei;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fffefe;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.form__input-warning {
+  text-align: left;
+  color: rgb(254, 43, 43);
+  margin-top: 10px;
+}
+
+.page {
+  border-bottom: 1px solid #9a9a9a;
+  padding: 20px 5px;
+}
+
+.page__time {
+  margin: 10px 0;
+  white-space: nowrap;
+}
+
+.page__number-wrapper {
+  text-align: center;
+  font-size: 16px;
+  white-space:nowrap;
+  overflow: auto;
+  padding-bottom: 30px;
+}
+
+.page__number {
+  display: inline-block;
+  border: solid 1px black;
+  color: #000000;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  width: 10px;
+  text-align: center;
+}
+
+.navbar__btn:hover,
+.article__more-btn:hover,
+.article__edit-btn:hover,
+.page__edit-btn:hover,
+.edit-post__btn:hover,
+.page__number:hover,
+.selected {
+  background: black;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  main {
+    margin-top: -30px;
+    max-width: 800px;
+  }
+
+  .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  .navbar__left {
+    display: flex;
+  }
+
+  .navbar__blog-name {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__btn{
+    display: inline-block;
+    padding: 16px 20px;
+  }
+
+  .banner {
+    padding: 50px 0 70px 0;
+  }
+  
+  .banner__title {
+    margin: 0 0 16px;
+  }
+
+  .page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .page_btns {
+    display: inline-block;
+  }
+
+  .page__time {
+    margin: 0 10px;
+  }
+
+  .article__btns {
+    margin-left: 10px;
+  }
+
+  .page__number-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
