@@ -32,7 +32,7 @@
   }
 
   $json = array (
-    'ok' => false,
+    'ok' => true,
     'message' => '更新成功！',
     'id' => $id
   );

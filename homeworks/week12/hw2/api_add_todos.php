@@ -31,7 +31,7 @@
   }
 
   $json = array (
-    'ok' => false,
+    'ok' => true,
     'message' => '新增成功！',
     'id' => $conn -> insert_id
   );

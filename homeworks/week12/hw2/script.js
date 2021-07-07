@@ -5,10 +5,10 @@ const baseUrl = 'http://192.168.64.2/todolist'
 $(document).ready(() => {
   const todoIdByGet = new URLSearchParams(window.location.search).get('id')
   if (todoIdByGet) {
-    $.getJSON(`${baseUrl}/api_get_todo.php?id=${todoIdByGet}`, (data) => {
+    $.getJSON(`${baseUrl}/api_get_todo.php?id=${todoIdByGet}`, (responseData) => {
       let todos
       try {
-        todos = JSON.parse(data.data.todo)
+        todos = JSON.parse(responseData.data.todo)
       } catch (error) {
         console.log(error)
         return
@@ -175,10 +175,10 @@ function saveTodos(todoIdByGet, data) {
       id: todoIdByGet,
       todo: data
     }
-  }).done((data) => {
-    if (!data.ok) {
-      window.location = `index.html?id=${data.id}`
-      alert(`${data.message}你的 id 為 ${data.id}`)
+  }).done((responseData) => {
+    if (responseData.ok) {
+      window.location = `index.html?id=${responseData.id}`
+      alert(`${responseData.message}你的 id 為 ${responseData.id}`)
     }
   }).fail(() => {
     alert('出現錯誤')
