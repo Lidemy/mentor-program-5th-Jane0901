@@ -1,0 +1,217 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+@import '_layouts.scss';
+
+.article {
+  @include wrapper(20px, $color-border: $grey-04);
+  margin-bottom: 30px;
+
+  &__top {
+    @include flex(space-between, center);
+    height: 30px;
+  }
+
+  &__title {
+    @include font($black, $font-size-normal);
+    @include hide_over-text();
+    margin-right: 10px;
+    display: block;
+  }
+
+  &__btns {
+    white-space: nowrap;
+  }
+
+  &__edit-btn {
+    @include btn($grey-04, 2px 8px);
+    @include font($grey-04, $font-size-small);
+    margin-left: 5px;
+  }
+
+  &__info {
+    @include wrapper(10px, $color-background: $grey-06);
+    @include flex($align: center);
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+    img {
+      height: 14px;
+    }
+
+    p {
+      @include font($grey-04, $font-size-small);
+      display: inline-block;
+    }
+
+    &-time {
+      margin-right: 15px;
+    }
+
+    &-category {
+      @include hide_over-text();
+    }
+  }
+
+  &__content {
+    @include font($black, $font-size-normal);
+    @include hide_over-text(pre-line);
+    margin: 20px 0;
+    height: 260px;
+
+    &-complete {
+      @include font($black, $font-size-normal);
+      white-space: pre-line;
+      margin: 20px 0;
+    }
+  }
+
+  &__more-btn {
+    @include btn($grey-03, 8px 16px);
+    @include font($black, $font-size-small);
+  }
+}
+
+.pagination {
+  @include font($black, $font-size-normal);
+  @include center-horizontally();
+  text-align: center;
+  white-space: nowrap;
+  overflow: auto;
+  padding-bottom: 30px;
+  
+  &__selected {
+    background: $black;
+    color: $white;
+  }
+
+  &__number {
+    @include btn($black, 2px 10px);
+    width: 10px;
+  }
+}
+
+.page {
+  border-bottom: 1px solid $grey-04;
+  padding: 15px 5px;
+
+  &__title {
+    @include font($black, $font-size-normal);
+    @include hide_over-text();
+    margin-right: 10px;
+    display: block;
+  }
+
+  &__wrapper {
+    white-space: nowrap;
+  }
+
+  &__time {
+    @include font($grey-04, $font-size-small);
+    display: inline-block;
+    margin: 10px 0;
+    white-space: nowrap;
+  }
+  
+  &__edit-btn {
+    @include btn($grey-04, 2px 8px);
+    @include font($grey-04, $font-size-small);
+  }
+}
+
+.edit-article {
+  @include wrapper(20px, $color-border: $grey-04);
+  margin-bottom: 30px;
+
+  &__title {
+    @include font($black, $font-size-large, bold);
+  }
+
+  &__input-wrapper {
+    margin: 20px 0;
+  
+    input {
+      @include input($grey-05);
+    }
+  
+    select {
+      @include input($grey-06, $color-background: $grey-06);
+    }
+  }
+
+  &__btn-wrapper {
+    @include flex(flex-end);
+    margin-top: 20px;
+
+    input {
+      @include btn($grey-03, 10px 30px);
+      background: $white;
+    }
+  }
+}
+
+.login, .register {
+  @include wrapper(50px 40px, $color-border: $black);
+  @include center-horizontally-and-vertically();
+  height: 350px;
+  max-width: 350px;
+
+  &__title {
+    @include font($black, $font-size-title);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    margin-top: 20px;
+
+    input {
+      @include input($black);
+      margin-top: 10px;
+      height: 30px;
+    }
+  }
+
+  &__btn {
+    @include input(transparent, 10px 0, $gradient);
+    @include font($white, $font-size-normal, bold);
+    cursor: pointer;
+    margin-top: 50px;
+  }
+
+  &__warning {
+    @include font($red, $font-size-normal);
+    margin-top: 10px;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  main {
+    margin-top: -30px;
+    max-width: 800px;
+  }
+
+  .article__btns {
+    margin-left: 10px;
+  }
+
+  .pagination {
+    max-width: 700px;
+  }
+
+  .page {
+    @include flex(space-between, center);
+    position: relative;
+
+    &__btns {
+      display: inline-block;
+    }
+
+    &__time {
+      margin: 0 10px;
+    }
+  }
+}

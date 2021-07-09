@@ -1,0 +1,81 @@
+html, body {
+  height: 100%;
+}
+
+main {
+  @include wrapper(10px, $white);
+  @include center-horizontally();
+}
+
+h1, p, div {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 0;
+
+  &__blog-name a {
+    @include font($grey-01, $font-size-title, bold);
+  }
+
+  &__btn {
+    @include font($grey-03, $font-size-normal);
+    @include btn(transparent, 5px, block);
+  }
+}
+
+.banner {
+  @include wrapper(20px, $gradient);
+  text-align: center;
+
+  &__title {
+    @include font($grey-06, $font-size-title, bold);
+  }
+
+  p {
+    @include font($grey-06, $font-size-small);
+  }
+}
+
+.wrapper {
+  @include center-horizontally();
+  min-height: calc(100% - 80px);
+  position: relative;
+}
+
+footer {
+  @include wrapper(20px 0, $grey-01);
+  @include font($white, $font-size-small);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    @include flex(space-between, center);
+    padding: 0 20px;
+    white-space: nowrap;
+
+    &__left {
+      @include flex($align: center);
+    }
+
+    &__blog-name {
+      @include flex($align: center);
+      margin: 0 10px;
+    }
+
+    &__btn {
+      @include btn(transparent, 16px 18px);
+    }
+  }
+
+  .banner {
+    padding: 50px 0 70px 0;
+  }
+}
