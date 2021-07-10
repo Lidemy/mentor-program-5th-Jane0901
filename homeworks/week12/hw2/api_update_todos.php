@@ -4,11 +4,11 @@
   header('Access-Control-Allow-Origin: *');
 
   if (empty($_POST['todo']) | empty($_POST['id'])) {
-    $json = array (
+    $arr = array (
       'ok' => false,
       'message' => '資料不完整'
     );
-    $response = json_encode($json);
+    $response = json_encode($arr);
     echo $response;
     die();
   }
@@ -22,20 +22,20 @@
   $result = $stmt -> execute();
 
   if (!$result) {
-    $json = array (
+    $arr = array (
       'ok' => false,
       'message' => '更新失敗'
     );
-    $response = json_encode($json);
+    $response = json_encode($arr);
     echo $response;
     die();
   }
 
-  $json = array (
+  $arr = array (
     'ok' => true,
     'message' => '更新成功！',
     'id' => $id
   );
-  $response = json_encode($json);
+  $response = json_encode($arr);
   echo $response;
 ?>

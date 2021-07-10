@@ -4,11 +4,11 @@
   header('Access-Control-Allow-Origin: *');
 
   if (empty($_GET['id'])) {
-    $json = array (
+    $arr = array (
       'ok' => false,
       'message' => '請加上 id'
     );
-    $response = json_encode($json);
+    $response = json_encode($arr);
     echo $response;
     die();
   }
@@ -21,24 +21,24 @@
   $result = $stmt -> execute();
 
   if (!$result) {
-    $json = array(
+    $arr = array(
       'ok' => false,
       'message' => '取資料有問題'
     );
-    $response = json_encode($json);
+    $response = json_encode($arr);
     echo $response;
     die();
   }
 
   $result = $stmt -> get_result();
   $row = $result -> fetch_assoc();
-  $json = array(
+  $arr = array(
     'ok' => true,
     'data' => array(
       'id' => $row['id'],
       'todo' => $row['todo']
     )
   );
-  $response = json_encode($json);
+  $response = json_encode($arr);
   echo $response;
 ?>

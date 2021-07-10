@@ -8,11 +8,11 @@
     empty($_POST['nickname']) |
     empty($_POST['content'])
   ) {
-    $json = array (
+    $arr = array (
       'ok' => false,
       'message' => '資料不完整'
     );
-    $response = json_encode($json);
+    $response = json_encode($arr);
     echo $response;
     die();
   }
@@ -27,19 +27,19 @@
   $result = $stmt -> execute();
 
   if (!$result) {
-    $json = array (
+    $arr = array (
       'ok' => false,
       'message' => '新增失敗'
     );
-    $response = json_encode($json);
+    $response = json_encode($arr);
     echo $response;
     die();
   }
 
-  $json = array (
+  $arr = array (
     'ok' => true,
     'message' => '新增成功'
   );
-  $response = json_encode($json);
+  $response = json_encode($arr);
   echo $response;
 ?>

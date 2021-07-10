@@ -3,7 +3,7 @@ const siteKey = 'jane'
 const loadMoreBtn = '<button type="submit" class="btn btn-primary mb-3 load-more">載入更多</button>'
 let lastId = null
 let isEnd = false
-const baseUrl = 'http://192.168.64.2/discussions'
+const baseUrl = 'http://mentor-program.co/mtr04group1/jane/week12/hw1'
 
 function escapeHtml(unsafe) {
   return unsafe

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 let todoID = 1
-const baseUrl = 'http://192.168.64.2/todolist'
+const baseUrl = 'http://mentor-program.co/mtr04group1/jane/week12/hw2'
 
 $(document).ready(() => {
   const todoIdByGet = new URLSearchParams(window.location.search).get('id')
