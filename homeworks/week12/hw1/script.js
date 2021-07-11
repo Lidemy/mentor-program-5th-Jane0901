@@ -45,6 +45,22 @@ function getCommentsAPI(siteKey, before, cb) {
   })
 }
 
+function addMoreBtnOrNot(container) {
+  getCommentsAPI(siteKey, lastId, (data) => {
+    if (!data.ok) {
+      alert(data.message)
+      return
+    }
+    const { comments } = data
+    const { length } = comments
+    if (length === 0) {
+      isEnd = true
+    } else {
+      container.append(loadMoreBtn)
+    }
+  })
+}
+
 function getComment() {
   const boardCommentsDiv = $('.board__comments')
   if (isEnd) return
@@ -58,22 +74,7 @@ function getComment() {
       addCommentToDom(boardCommentsDiv, comment)
     }
     lastId = comments[comments.length - 1].id
-
-    // 判斷是否加上 loadMoreBtn
-    getCommentsAPI(siteKey, lastId, (data) => {
-      if (!data.ok) {
-        alert(data.message)
-        return
-      }
-      const { comments } = data
-      const { length } = comments
-      if (length === 0) {
-        isEnd = true
-        $('.load-more').hide()
-      } else {
-        boardCommentsDiv.append(loadMoreBtn)
-      }
-    })
+    addMoreBtnOrNot(boardCommentsDiv)
   })
 }
 
@@ -87,15 +88,16 @@ $(document).ready(() => {
 
   $('.board__add-comment').submit((e) => {
     const boardCommentsDiv = $('.board__comments')
+    const newCommentData = {
+      site_key: siteKey,
+      nickname: $('input[name = nickname]').val(),
+      content: $('textarea[name = content]').val()
+    }
     e.preventDefault()
     $.ajax({
       type: 'POST',
       url: `${baseUrl}/api_add_comments.php?site_key=jane`,
-      data: {
-        site_key: siteKey,
-        nickname: $('input[name = nickname]').val(),
-        content: $('textarea[name = content]').val()
-      }
+      data: newCommentData
     }).done((data) => {
       if (!data.ok) {
         alert(data.message)
@@ -105,13 +107,13 @@ $(document).ready(() => {
       $('input[name = nickname]').val('')
       $('textarea[name = content]').val('')
 
-      // 顯示新增的留言
+      // 拿資料庫的 created_at ，再顯示新增的留言內容
       getCommentsAPI(siteKey, null, (data) => {
         if (!data.ok) {
           alert(data.message)
           return
         }
-        const newCommentData = data.comments[0]
+        newCommentData.created_at = data.comments[0].created_at
         addCommentToDom(boardCommentsDiv, newCommentData, true)
       })
     })
