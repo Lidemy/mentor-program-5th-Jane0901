@@ -3,6 +3,7 @@ const siteKey = 'jane'
 const loadMoreBtn = '<button type="submit" class="btn btn-primary mb-3 load-more">載入更多</button>'
 let lastId = null
 let isEnd = false
+let isClicked = false
 const baseUrl = 'http://mentor-program.co/mtr04group1/jane/week12/hw1'
 
 function escapeHtml(unsafe) {
@@ -87,6 +88,8 @@ $(document).ready(() => {
   })
 
   $('.board__add-comment').submit((e) => {
+    if (isClicked) return
+    isClicked = true
     const boardCommentsDiv = $('.board__comments')
     const newCommentData = {
       site_key: siteKey,
