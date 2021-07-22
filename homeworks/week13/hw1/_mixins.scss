@@ -1,0 +1,60 @@
+@mixin wrapper($padding, $color-background: transparent, $color-border: transparent) {
+  padding: $padding;
+  background: $color-background;
+  border: solid 1px $color-border;
+}
+
+@mixin btn($color-border, $padding, $display: inline-block) {
+  cursor: pointer;
+  border: solid 1px $color-border;
+  padding: $padding;
+  display: $display;
+  transition: .3s;
+  
+  &:hover {
+    background: $black;
+    color: $white;
+  }
+}
+
+@mixin input($color-border, $padding: 8px, $color-background: transparent) {
+  box-sizing: border-box;
+  width: 100%;
+  border: solid 1px $color-border;
+  padding: $padding;
+  background: $color-background;
+}
+
+@mixin flex($justify: flex-start, $align: flex-start) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin font($color, $size, $weight: normal) {
+  font-family: MicrosoftJhengHei;
+  line-height: 1.5;
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin hide_over-text($white-space: nowrap) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: $white-space;
+}
+
+@mixin center-horizontally() {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin center-horizontally-and-vertically() {
+  position: absolute;
+  top: 0;
+  bottom: 0;  
+  left: 0;
+  right: 0;
+  margin: auto;
+}
