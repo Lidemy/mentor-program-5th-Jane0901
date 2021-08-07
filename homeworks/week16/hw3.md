@@ -21,6 +21,7 @@ a = 10
 console.log(a)
 console.log(b)
 ```
+
 **答案**
 ```
 undefined
@@ -31,6 +32,7 @@ undefined
 10
 100
 ```
+
 **說明**
 
 1. Global 的編譯階段：
@@ -42,6 +44,7 @@ Global VO: {
   fn: function
 }
 ```
+
 2. Global 的執行階段：
 - 對 a 賦值為 １。
 ```
@@ -51,6 +54,7 @@ Global VO: {
 }
 ```
 - 執行 fn。
+
 3. fn 的編譯階段：
 - 宣告一個變數叫做 a。
 - 宣告一個函式叫做 fn2。
@@ -65,6 +69,7 @@ Global VO: {
   fn: function
 }
 ```
+
 4. fn 的執行階段：
 - 執行 `console.log(a)`，因為 fn scope 裡的 a 為 undefined，所以印出 undefined。
 - 對 a 賦值為 5。
@@ -93,6 +98,7 @@ Global VO: {
 }
 ```
 - 執行 fn2。
+
 5. fn2 的編譯階段，VO 沒有內容：
 ```
 fn2 VO: {}
@@ -107,6 +113,7 @@ Global VO: {
   fn: function
 }
 ```
+
 6. fn2 的執行階段：
 - 執行 `console.log(a)` ，fn2 scope 沒有 a，往上層找到 fn scope 裡的 a 為 6，所以印出 6。
 - 對 a 賦值為 20，不過因為 fn2 scope 沒有 a，所以找到上層 fn scope，改變裡面的 a。
@@ -138,6 +145,7 @@ Global VO: {
   b: 100
 }
 ```
+
 7. fn2 的執行階段結束，回到 fn 的執行階段：
 ```
 fn VO: {
@@ -152,6 +160,7 @@ Global VO: {
 }
 ```
 - 執行 `console.log(a)`，因為 fn scope 裡的 a 為 20，所以印出 20。
+
 8. fn 的執行階段結束，回到 Global 的執行階段：
 ```
 Global VO: {

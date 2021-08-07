@@ -19,6 +19,7 @@ obj.inner.hello() // 2
 obj2.hello() // 2
 hello() // undefined
 ```
+
 **說明**
 - `obj.inner.hello()`
 
