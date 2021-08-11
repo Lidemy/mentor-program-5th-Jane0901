@@ -33,19 +33,19 @@ i: 4
 
 - 第二圈迴圈，此時 `i = 1`，i 小於五。
   - 將 `console.log('i: ' + i)`， 放入 Call Stack，執行後顯示 `i: 1`，將此層從 Call Stack 移除。
-  - 將 `setTimeout(() => {console.log(i)}, i * 1000)` 放入 Call Stack，瀏覽器開始計時，同時將此層從 Call Stack 移除。計時 1 毫秒後，將 `() => {console.log(i)}` 放入 callback queue 排隊。
+  - 將 `setTimeout(() => {console.log(i)}, i * 1000)` 放入 Call Stack，瀏覽器開始計時，同時將此層從 Call Stack 移除。計時 1000 毫秒後，將 `() => {console.log(i)}` 放入 callback queue 排隊。
 
 - 第三圈迴圈，此時 `i = 2`，i 小於五。
   - 將 `console.log('i: ' + i)`， 放入 Call Stack，執行後顯示 `i: 2`，將此層從 Call Stack 移除。
-  - 將 `setTimeout(() => {console.log(i)}, i * 1000)` 放入 Call Stack，瀏覽器開始計時，同時將此層從 Call Stack 移除。計時 2 毫秒後，將 `() => {console.log(i)}` 放入 callback queue 排隊。
+  - 將 `setTimeout(() => {console.log(i)}, i * 1000)` 放入 Call Stack，瀏覽器開始計時，同時將此層從 Call Stack 移除。計時 2000 毫秒後，將 `() => {console.log(i)}` 放入 callback queue 排隊。
 
 - 第四圈迴圈，此時 `i = 3`，i 小於五。
   - 將 `console.log('i: ' + i)`， 放入 Call Stack，執行後顯示 `i: 3`，將此層從 Call Stack 移除。
-  - 將 `setTimeout(() => {console.log(i)}, i * 1000)` 放入 Call Stack，瀏覽器開始計時，同時將此層從 Call Stack 移除。計時 3 毫秒後，將 `() => {console.log(i)}` 放入 callback queue 排隊。
+  - 將 `setTimeout(() => {console.log(i)}, i * 1000)` 放入 Call Stack，瀏覽器開始計時，同時將此層從 Call Stack 移除。計時 3000 毫秒後，將 `() => {console.log(i)}` 放入 callback queue 排隊。
 
 - 第五圈迴圈，此時 `i = 4`，i 小於五。
   - 將 `console.log('i: ' + i)`， 放入 Call Stack，執行後顯示 `i: 4`，將此層從 Call Stack 移除。
-  - 將 `setTimeout(() => {console.log(i)}, i * 1000)` 放入 Call Stack，瀏覽器開始計時，同時將此層從 Call Stack 移除。計時 4 毫秒後，將 `() => {console.log(i)}` 放入 callback queue 排隊。
+  - 將 `setTimeout(() => {console.log(i)}, i * 1000)` 放入 Call Stack，瀏覽器開始計時，同時將此層從 Call Stack 移除。計時 4000 毫秒後，將 `() => {console.log(i)}` 放入 callback queue 排隊。
   
 - 第六圈迴圈，此時 `i = 5`，i 不小於五，迴圈結束，將此層從 Call Stack 移除。
 
